@@ -31,7 +31,7 @@ module OmniAuth
 
       # Require: Access token with PROFILE permission issued.
       def raw_info
-        @raw_info ||= JSON.load(access_token.get('v2/profile').body)
+        @raw_info ||= JSON.load(access_token.get('v2/profile/large').body)
       rescue ::Errno::ETIMEDOUT
         raise ::Timeout::Error
       end
